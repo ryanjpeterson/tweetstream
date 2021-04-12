@@ -1,0 +1,7 @@
+# Development keys
+dev.js
+.env.development
+
+# Node modules and build folders
+node_modules/
+client/build

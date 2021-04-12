@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Signika:wght@400&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Signika', sans-serif;
+  color: #fffaf0;
+  height: 100%;
+}
+
+.App {
+  background: #ff7e5f;
+  background: linear-gradient(111deg, #ffd0ac, #ff7e5f);
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.tweets-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+}
+
+@media screen and (min-width: 800px) {
+  .tweets-container {
+    padding: 1rem 6rem;
+  }
+}
