@@ -1,10 +1,12 @@
-const app = require('express')();
+const express = require('express');
 const Twitter = require('twitter');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const keys = require('./config/keys');
 const { parseTweet } = require('./utils/utils');
+
+const app = express();
 
 // Socket.io
 const http = require('http');
