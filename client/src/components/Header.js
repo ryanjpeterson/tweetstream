@@ -11,9 +11,11 @@ const Container = styled.div`
 
 const HeaderText = styled.h1`
   margin: 0;
-  background: #ff7e5f;
+  background: var(--color-main-2-transparent);
+  color: var(--color-main-3);
   padding: 0.5rem 1.5rem;
   border-radius: 5px;
+  box-sizing: border-box;
 `;
 
 function Header() {

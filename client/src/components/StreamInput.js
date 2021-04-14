@@ -33,9 +33,7 @@ const Input = styled.input.attrs((props) => ({
   outline: none;
   height: 100px;
   font-size: 2rem;
-  padding: 0;
   margin: 0;
-  box-sizing: border-box;
   width: 80vw;
 
   ::placeholder {
@@ -48,12 +46,10 @@ const Input = styled.input.attrs((props) => ({
 `;
 
 const InputSubmit = styled.div`
-  color: $fff;
   border: 5px solid white;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   margin: 1rem 0;
-  width: 50px;
   text-align: center;
 
   :hover {

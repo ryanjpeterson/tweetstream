@@ -17,10 +17,6 @@ function App() {
   const socket = socketIOClient(process.env.REACT_APP_AXIOS_BASE_URL);
 
   useEffect(() => {
-    socket.on('connection', () => {
-      console.log('Server');
-    });
-
     socket.on('tweet', (tweet) => {
       setTweets((tweets) => [...tweets, tweet]);
     });

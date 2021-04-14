@@ -11,13 +11,23 @@ to {
 }`;
 
 const TweetCardComponent = styled.div`
-  background: rgba(40, 40, 40, 0.2);
-  height: 100%;
+  background: var(--color-main-2-transparent);
+  min-height: 150px;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(40, 40, 40, 0.05);
   box-sizing: border-box;
   animation: ${FadeIn} 0.5s;
+  text-decoration: none;
+  color: var(--color-main-3);
+
+  :hover {
+    transform: translateY(-2px);
+  }
+
+  :active {
+    transform: translateY(2px);
+  }
 `;
 
 const TweetCardUser = styled.div`
@@ -37,11 +47,12 @@ const TweetCardText = styled.div`
 function TweetCard({
   tweet: {
     text,
+    url,
     user: { screenName, profileImageUrl },
   },
 }) {
   return (
-    <TweetCardComponent>
+    <TweetCardComponent as="a" href={url} target="_blank">
       <TweetCardUser>
         <TweetCardUserImage src={profileImageUrl} alt="user" />
         <h3>{screenName}</h3>

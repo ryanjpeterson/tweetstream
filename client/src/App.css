@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Signika:wght@400&display=swap');
 
+:root {
+  --color-main-1: #1da1f2;
+  --color-main-2: #aed1f2;
+  --color-main-3: #fffaf0;
+  --color-main-1-transparent: rgba(29, 161, 242, 0.5);
+  --color-main-2-transparent: rgba(174, 209, 242, 0.5);
+  --color-main-3-transparent: rgba(255, 250, 240, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -9,14 +22,15 @@ body {
 
 body {
   font-family: 'Signika', sans-serif;
-  color: #fffaf0;
+  color: var(--color-main-3);
   height: 100%;
 }
 
 .App {
-  background: #ff7e5f;
-  background: linear-gradient(111deg, #ffd0ac, #ff7e5f);
+  background: var(--color-main-1);
+  background: linear-gradient(111deg, var(--color-main-2), var(--color-main-1));
   height: 100vh;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -35,5 +49,6 @@ h1 {
 @media screen and (min-width: 800px) {
   .tweets-container {
     padding: 1rem 6rem;
+    box-sizing: border-box;
   }
 }

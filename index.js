@@ -19,8 +19,6 @@ const io = socketIO(server, {
   },
 });
 
-const dotenv = require('dotenv');
-dotenv.config();
 app.use(cors());
 const jsonParser = bodyParser.json();
 
@@ -50,6 +48,10 @@ const startStream = (streamQuery) => {
   );
 };
 
+const stopStream = async () => {
+  await twitterStream.destroy();
+};
+
 const sendTweet = (tweet) => {
   if (tweet.text.includes('RT')) {
     return;
@@ -58,6 +60,11 @@ const sendTweet = (tweet) => {
   io.emit('tweet', tweet);
 };
 
+io.on('connection', (socket) => {
+  socket.on('connection', () => console.log('Client connected'));
+  socket.on('disconnect', () => stopStream());
+});
+
 app.post('/api/startStream', jsonParser, (req, res) => {
   const streamQuery = req.body.streamQuery;
   startStream(streamQuery);
@@ -65,11 +72,9 @@ app.post('/api/startStream', jsonParser, (req, res) => {
 });
 
 app.post('/api/stopStream', (req, res) => {
-  twitterStream.destroy();
+  stopStream();
   return res.status(200).json('Streaming stopped');
 });
-
-io.on('connection', () => console.log('Client connected'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
